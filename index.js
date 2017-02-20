@@ -11,8 +11,10 @@ const client = new irc.Client('chat.freenode.net', name, {
 })
 
 client.addListener('message', (from, to, message) => {
+	if (from == phrik) return
 	const words = message.split(/\s+/)
 	if (words[0] != `@${phrik}`) return
+	if (words[1] == 'identify' || words[1] == 'register') return
 	const command = words.slice(1).join(' ')
 	client.say(phrik, command)
 })
