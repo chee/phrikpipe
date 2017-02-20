@@ -1,5 +1,25 @@
 const phrik = 'phrik'
 const name = 'phrikpipe'
+const whitelist = [
+	'alyptik',
+	'DarkPsydeLord',
+	'dmc',
+	'javaisnom',
+	'minimalism',
+	'mpan',
+	'omp',
+	'paulguy',
+	'pcspkr',
+	'sangy',
+	'sr',
+	'chee',
+	'mnmrnaugh'
+]
+const blacks = [
+	'later',
+	'identify',
+	'register'
+]
 
 const irc = require('irc')
 const client = new irc.Client('chat.freenode.net', name, {
@@ -12,9 +32,10 @@ const client = new irc.Client('chat.freenode.net', name, {
 
 client.addListener('message', (from, to, message) => {
 	if (from == phrik) return
+	if (!whitelist.includes(from)) return
 	const words = message.split(/\s+/)
 	if (words[0] != `@${phrik}`) return
-	if (words[1] == 'identify' || words[1] == 'register') return
+	if (blacks.includes(words[1])) return
 	const command = words.slice(1).join(' ')
 	client.say(phrik, command)
 })
