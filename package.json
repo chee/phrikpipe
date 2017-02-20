@@ -1,0 +1,11 @@
+{
+  "name": "phrikpipe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "GPL",
+  "description": "phrik pipe",
+  "author": "chee <chee@snake.dog>",
+  "dependencies": {
+    "irc": "^0.5.2"
+  }
+}
