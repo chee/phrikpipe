@@ -2,7 +2,6 @@ const phrik = 'phrik'
 const name = 'phrikpipe'
 const whitelist = [
 	'alyptik',
-	'DarkPsydeLord',
 	'dmc',
 	'javaisnom',
 	'minimalism',
@@ -13,7 +12,9 @@ const whitelist = [
 	'sangy',
 	'sr',
 	'chee',
-	'mnmrnaugh'
+	'mnrmnaugh',
+	'jelle',
+	'polyzen'
 ]
 const blacks = [
 	'later',
@@ -37,12 +38,20 @@ client.addListener('message', (from, to, message) => {
 	if (words[0] != `@${phrik}`) return
 	if (blacks.includes(words[1])) return
 	const command = words.slice(1).join(' ')
-	client.say(phrik, command)
+	try {
+		client.say(phrik, command)
+	} catch (error) {
+		console.error(error)
+	}
 })
 
 client.addListener('pm', (from, message) => {
 	if (from != phrik) return
 	const words = message.split(/\s+/)
 	const response = words[0] == `${name}:` ? words.slice(1).join(' ') : words.join(' ')
-	client.say('#chee-fanclub', response)
+	try {
+		client.say('#chee-fanclub', response)
+	} catch (error) {
+		console.error(error)
+	}
 })

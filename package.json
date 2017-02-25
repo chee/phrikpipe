@@ -2,10 +2,10 @@
   "name": "phrikpipe",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "GPL",
+  "license": "GPL-3.0+",
   "description": "phrik pipe",
   "author": "chee <chee@snake.dog>",
   "dependencies": {
-    "irc": "^0.5.2"
+    "irc": "git@github.com/chee/node-irc"
   }
 }
